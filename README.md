@@ -1,7 +1,7 @@
 # tubestatus
 Access the London Tube lines status in real-time from your terminal.
 
-![Alt Text](https://github.com/smallwat3r/tubestatus/blob/master/_demo/demo.gif)  
+![Animated gif showing the original script in action](https://github.com/MatStace/tubestatus/blob/master/_demo/demo.gif)  
 
 ## Installation
 
@@ -23,7 +23,7 @@ chmod 755 /usr/local/bin/tubestatus
 ```
 or (without cloning)
 ```sh
-sudo wget https://raw.githubusercontent.com/smallwat3r/tubestatus/master/src/tubestatus -P /usr/local/bin && sudo chmod 755 /usr/local/bin/tubestatus
+sudo wget https://raw.githubusercontent.com/MatStace/tubestatus/master/src/tubestatus -P /usr/local/bin && sudo chmod 755 /usr/local/bin/tubestatus
 ```
 ## Running
 Running is as easy as a simple `tubestatus` in the terminal.  
