@@ -1,10 +1,14 @@
 #!/bin/bash
 # File  : tubestatus.sh
-# Author: Matthieu Petiteau <mpetiteau.pro@gmail.com>
+# Bastardised by Mat Stace 
+# Date: 2019-11-28
+# Original Author: Matthieu Petiteau <mpetiteau.pro@gmail.com>
 # Date  : 25.09.2019
 
 # This script fetch the tube line statuses from the TFL API
 # https://api.tfl.gov.uk and returns the results in terminal.
+#
+# Then Mat Stace added a sarcastic comment about crossrail/the elizabeth line
 
 if ! command -v jq &>/dev/null; then
   echo "You need to install jq to run this script."
@@ -45,6 +49,7 @@ NONE="\033[0m"
 URL="https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status"
 
 curl -s $URL |
+jq '. + [{"id": "crossrail", "name": "CrossElizPurp", "lineStatuses": [ { "statusSeverity": 20, "statusSeverityDescription": "Severe Delays", "reason": "Top-notch project management. ",}],}]' |
   jq --arg delim $DELIMITER -j '.[] |
   (.name) + $delim,
   (.lineStatuses[0] | (.statusSeverity),
